@@ -64,3 +64,4 @@ document.addEventListener('keydown', (evt) => {
   }
 });
 
+openImgUploadPopup();
