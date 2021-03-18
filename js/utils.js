@@ -5,9 +5,6 @@ const getRandomInt = (min, max) => {
   return undefined;
 }
 
-// const checkString = (comment, maxLength) => {
-//   return (comment.length > maxLength) ? false : true;
-// }
 //создаем массив цифр в заданном интервале
 const getNumbers = (min, max) => {
   let numbers = [];
