@@ -1,5 +1,4 @@
 import { imgPreview } from './image-scale.js';
-// import { noUiSlider } from '../nouislider/nouislider.js';
 
 const effectsList = document.querySelector('.effects__list');
 const effectSlider = document.querySelector('.effect-level__slider');
