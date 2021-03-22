@@ -35,7 +35,7 @@ filterRandomButton.addEventListener('click', () => {
 filterDiscussedButton.addEventListener('click', () => {
   const sorted = window._.sortBy(receivedPhotos, (photo) => {
     return photo.comments.length;
-  });
+  }).reverse();
 
   debounceRenderPictures(sorted);
 
