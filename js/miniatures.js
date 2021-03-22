@@ -16,6 +16,9 @@ const renderPictures = (photos) => {
     picturesFragment.appendChild(userPictureElement);
   });
 
+  document.querySelectorAll('.picture').forEach((picture) => {
+    picture.remove();
+  });
   pictures.appendChild(picturesFragment);
 
   const onPictureImgClick = (evt) => {
