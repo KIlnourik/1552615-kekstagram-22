@@ -25,6 +25,4 @@ const isEnterEvent = (evt) => {
   return evt.key === 'Enter';
 };
 
-
-
 export { getRandomInt, getNumbers, getRandomElement, isEscEvent, isEnterEvent };

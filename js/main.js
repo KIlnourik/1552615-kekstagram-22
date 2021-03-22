@@ -6,3 +6,4 @@ import './image-effects.js';
 import './form-validation.js';
 import './create-fetch.js';
 import './upload-form.js';
+import './filter.js';
