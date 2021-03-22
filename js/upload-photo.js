@@ -25,12 +25,15 @@ const openImgUploadPopup = () => {
   document.querySelector('.scale__control--value').value = '100%';
   document.querySelector('body').classList.add('modal-open');
   document.addEventListener('keydown', onImgUploadPopupEscKeydown);
+  imgPreview.style.filter = '';
+  document.querySelector('#effect-none').checked = true;
 };
 
 const closeImgUploadPopup = () => {
   imgUploadPopup.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onImgUploadPopupEscKeydown);
+
   uploadPhoto.value = '';
   imgPreview.style.filter = '';
   imgPreview.style.transform = 'scale(1)';

@@ -23,8 +23,8 @@ const setImageUploadFormSubmit = (onSuccess) => {
         }
       })
       .catch(() => {
-        closeImgUploadPopup();
         showUploadError();
+        closeImgUploadPopup();
       });
   });
 };

@@ -10,17 +10,23 @@ const showUploadError = () => {
   errorFragment.appendChild(errorTemplate.cloneNode(true));
   mainPage.appendChild(errorFragment);
 
+  const onErrorMessageEscKeydown = (evt) => {
+    if (isEscEvent(evt)) {
+      errorRemove();
+    }
+  };
   const errorButton = document.querySelector('.error__button');
   const errorRemove = () => {
     document.querySelector('.error').remove();
+    document.removeEventListener('keydown', onErrorMessageEscKeydown);
   }
 
   errorButton.addEventListener('click', errorRemove);
 
-  document.addEventListener('keydown', (evt) => {
-    if (isEscEvent(evt)) {
-      errorRemove();
-    }
+  document.addEventListener('keydown', onErrorMessageEscKeydown);
+  document.querySelector('.error').addEventListener('click', errorRemove);
+  document.querySelector('.error__inner').addEventListener('click', (evt) => {
+    evt.stopPropagation();
   });
 }
 
@@ -29,19 +35,26 @@ const showUploadSuccess = () => {
   successFragment.appendChild(successTemplate.cloneNode(true));
   mainPage.appendChild(successFragment);
 
-  const successButton = document.querySelector('.success__button');
-  const successRemove = () => {
-    document.querySelector('.success').remove();
-  }
-
-  successButton.addEventListener('click', successRemove);
-
-  document.addEventListener('keydown', (evt) => {
+  const onSuccessMessageEscKeydown = (evt) => {
     if (isEscEvent(evt)) {
       successRemove();
     }
+  };
+
+  const successRemove = () => {
+    document.querySelector('.success').remove();
+    document.removeEventListener('keydown', onSuccessMessageEscKeydown);
+  };
+
+  const successButton = document.querySelector('.success__button');
+  successButton.addEventListener('click', successRemove);
+
+  document.addEventListener('keydown', onSuccessMessageEscKeydown);
+  document.querySelector('.success').addEventListener('click', successRemove);
+  document.querySelector('.success__inner').addEventListener('click', (evt) => {
+    evt.stopPropagation();
   });
-}
+};
 
 const showDownloadError = (message) => {
   const alertContainer = document.createElement('div');
@@ -62,7 +75,6 @@ const showDownloadError = (message) => {
   setTimeout(() => {
     alertContainer.remove();
   }, ALERT_SHOW_TIME);
-
 
 }
 
