@@ -44,7 +44,7 @@ const displayComments = (i) => {
   const shownComments = document.querySelector('.comments-visible');
   shownComments.textContent = document.querySelectorAll('.social__comment').length - otherComments;
 
-  if (parseInt(shownComments.textContent) == document.querySelectorAll('.social__comment').length) {
+  if (shownComments.textContent === bigPicture.querySelector('.comments-count').textContent) {
     commentsLoader.classList.add('hidden');
   }
 };
