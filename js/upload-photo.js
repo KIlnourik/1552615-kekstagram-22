@@ -59,5 +59,4 @@ document.addEventListener('keydown', (evt) => {
   }
 });
 
-
 export { closeImgUploadPopup };
