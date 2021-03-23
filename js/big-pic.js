@@ -31,6 +31,7 @@ const bigPicDataRender = ({ url, likes, comments, description }) => {
   });
 
   displayComments(DISPLAYED_COMMENTS_COUNT);
+  commentsLoader.classList.remove('hidden');
 };
 
 const displayComments = (i) => {
@@ -63,7 +64,6 @@ const onBigPictureEscKeydown = (evt) => {
 const openBigPicture = () => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
-  displayComments(DISPLAYED_COMMENTS_COUNT);
   document.addEventListener('keydown', onBigPictureEscKeydown);
 };
 
