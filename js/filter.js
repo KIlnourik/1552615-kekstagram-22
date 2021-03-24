@@ -1,4 +1,4 @@
-import { receivedPhotos } from './create-fetch.js';
+import { getPhotos } from './create-fetch.js';
 import { renderPictures } from './miniatures.js';
 
 const filterDefaultButton = document.querySelector('#filter-default');
@@ -13,7 +13,7 @@ const debounceRenderPictures = window._.debounce((photos) => {
 }, RERENDER_DELAY);
 
 filterDefaultButton.addEventListener('click', () => {
-  debounceRenderPictures(receivedPhotos);
+  debounceRenderPictures(getPhotos());
 
   filterDefaultButton.classList.add('img-filters__button--active');
   filterRandomButton.classList.remove('img-filters__button--active');
@@ -21,7 +21,7 @@ filterDefaultButton.addEventListener('click', () => {
 });
 
 filterRandomButton.addEventListener('click', () => {
-  const randomPhotos = receivedPhotos.sort(() => 0.5 - Math.random());
+  const randomPhotos = getPhotos().sort(() => 0.5 - Math.random());
 
   let slicedRandomPhotos = randomPhotos.slice(MIN_RANDOM_PHOTOS, MAX_RANDOM_PHOTOS);
 
@@ -33,7 +33,7 @@ filterRandomButton.addEventListener('click', () => {
 });
 
 filterDiscussedButton.addEventListener('click', () => {
-  const sorted = window._.sortBy(receivedPhotos, (photo) => {
+  const sorted = window._.sortBy(getPhotos(), (photo) => {
     return photo.comments.length;
   }).reverse();
 

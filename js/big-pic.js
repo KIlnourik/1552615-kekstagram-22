@@ -5,6 +5,7 @@ const bigPicture = document.querySelector('.big-picture');
 const bigPictureCloseElement = bigPicture.querySelector('.big-picture__cancel');
 const commentsLoader = bigPicture.querySelector('.comments-loader');
 const bigPicCommentsList = document.querySelector('.social__comments');
+const shownComments = document.querySelector('.comments-visible');
 const DISPLAYED_COMMENTS_COUNT = 5;
 
 const bigPicDataRender = ({ url, likes, comments, description }) => {
@@ -31,7 +32,12 @@ const bigPicDataRender = ({ url, likes, comments, description }) => {
   });
 
   displayComments(DISPLAYED_COMMENTS_COUNT);
-  commentsLoader.classList.remove('hidden');
+  // commentsLoader.classList.remove('hidden');
+  if (shownComments.textContent === bigPicture.querySelector('.comments-count').textContent) {
+    commentsLoader.classList.add('hidden');
+  } else {
+    commentsLoader.classList.remove('hidden');
+  }
 };
 
 const displayComments = (i) => {
@@ -42,7 +48,6 @@ const displayComments = (i) => {
   });
 
   const otherComments = document.querySelectorAll('.social__comment.hidden').length;
-  const shownComments = document.querySelector('.comments-visible');
   shownComments.textContent = document.querySelectorAll('.social__comment').length - otherComments;
 
   if (shownComments.textContent === bigPicture.querySelector('.comments-count').textContent) {
