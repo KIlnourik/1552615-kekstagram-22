@@ -1,12 +1,12 @@
 import { isEscEvent } from './utils.js';
 
+const DISPLAYED_COMMENTS_COUNT = 5;
 const body = document.querySelector('body');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCloseElement = bigPicture.querySelector('.big-picture__cancel');
 const commentsLoader = bigPicture.querySelector('.comments-loader');
 const bigPicCommentsList = document.querySelector('.social__comments');
 const shownComments = document.querySelector('.comments-visible');
-const DISPLAYED_COMMENTS_COUNT = 5;
 
 const bigPicDataRender = ({ url, likes, comments, description }) => {
   bigPicture.querySelector('.big-picture__img img').src = url;
@@ -32,7 +32,6 @@ const bigPicDataRender = ({ url, likes, comments, description }) => {
   });
 
   displayComments(DISPLAYED_COMMENTS_COUNT);
-  // commentsLoader.classList.remove('hidden');
   if (shownComments.textContent === bigPicture.querySelector('.comments-count').textContent) {
     commentsLoader.classList.add('hidden');
   } else {
@@ -82,4 +81,4 @@ bigPictureCloseElement.addEventListener('click', () => {
   closeBigPicture();
 });
 
-export { openBigPicture, closeBigPicture, bigPicDataRender }
+export { openBigPicture, closeBigPicture, bigPicDataRender };

@@ -1,9 +1,9 @@
 import { isEscEvent } from './utils.js';
 
+const ALERT_SHOW_TIME = 5000;
 const errorTemplate = document.querySelector('#error').content;
 const successTemplate = document.querySelector('#success').content;
 const mainPage = document.querySelector('main');
-const ALERT_SHOW_TIME = 5000;
 
 const showUploadError = () => {
   const errorFragment = document.createDocumentFragment();
@@ -19,7 +19,7 @@ const showUploadError = () => {
   const errorRemove = () => {
     document.querySelector('.error').remove();
     document.removeEventListener('keydown', onErrorMessageEscKeydown);
-  }
+  };
 
   errorButton.addEventListener('click', errorRemove);
 
@@ -28,7 +28,7 @@ const showUploadError = () => {
   document.querySelector('.error__inner').addEventListener('click', (evt) => {
     evt.stopPropagation();
   });
-}
+};
 
 const showUploadSuccess = () => {
   const successFragment = document.createDocumentFragment();
@@ -76,6 +76,6 @@ const showDownloadError = (message) => {
     alertContainer.remove();
   }, ALERT_SHOW_TIME);
 
-}
+};
 
 export { showUploadError, showUploadSuccess, showDownloadError };

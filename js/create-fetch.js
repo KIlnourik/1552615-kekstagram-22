@@ -9,7 +9,7 @@ fetch('https://22.javascript.pages.academy/kekstagram/data')
     if (response.ok) {
       return response.json()
     } else {
-      showDownloadError();
+      throw new Error('Ошибка загрузки данных');
     }
   })
   .then((photos) => {
@@ -17,6 +17,9 @@ fetch('https://22.javascript.pages.academy/kekstagram/data')
     renderPictures(photos);
 
     document.querySelector('.img-filters').classList.remove('img-filters--inactive');
+  })
+  .catch((err) => {
+    showDownloadError(err.message);
   });
 
 export { getPhotos };

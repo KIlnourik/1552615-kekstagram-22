@@ -41,7 +41,7 @@ effectSlider.noUiSlider.on('update', (values, handle) => {
   }
 });
 
-const sliderValueChangeHandler = (evt) => {
+const onSliderValueChangeHandler = (evt) => {
   if (evt.target.matches('#effect-chrome')) {
     effect = evt.target.value;
     sliderField.classList.remove('hidden');
@@ -91,7 +91,7 @@ const sliderValueChangeHandler = (evt) => {
     sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
-        min: 0,
+        min: 1,
         max: 3,
       },
       start: 3,
@@ -104,4 +104,4 @@ const sliderValueChangeHandler = (evt) => {
   }
 };
 
-effectsList.addEventListener('change', sliderValueChangeHandler);
+effectsList.addEventListener('change', onSliderValueChangeHandler);

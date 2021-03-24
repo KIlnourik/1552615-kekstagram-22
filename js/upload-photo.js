@@ -37,6 +37,8 @@ const closeImgUploadPopup = () => {
   uploadPhoto.value = '';
   imgPreview.style.filter = '';
   imgPreview.style.transform = 'scale(1)';
+  document.querySelector('.text__hashtags').value = '';
+  document.querySelector('.text__description').value = '';
 };
 
 uploadPhoto.addEventListener('change', onUploadIconClick);

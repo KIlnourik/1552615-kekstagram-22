@@ -3,7 +3,7 @@ const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
   }
   return undefined;
-}
+};
 
 const getNumbers = (min, max) => {
   let numbers = [];
@@ -11,7 +11,7 @@ const getNumbers = (min, max) => {
     numbers.push(i);
   }
   return numbers;
-}
+};
 
 const getRandomElement = (elements) => {
   return elements[getRandomInt(0, elements.length - 1)];

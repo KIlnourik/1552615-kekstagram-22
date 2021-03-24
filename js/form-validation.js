@@ -1,8 +1,8 @@
-const hashtagsInput = document.querySelector('.text__hashtags');
-const userCommentInput = document.querySelector('.text__description');
 const COMMENT_MAX_LENGTH = 140;
 const HASHTAGS_MAX_COUNT = 5;
 const HASHTAG_MAX_LENGTH = 20;
+const hashtagsInput = document.querySelector('.text__hashtags');
+const userCommentInput = document.querySelector('.text__description');
 
 userCommentInput.addEventListener('input', () => {
   const userCommentLength = userCommentInput.value.length;
@@ -16,26 +16,22 @@ userCommentInput.addEventListener('input', () => {
 
 const hashtagLengthValidate = (hashTags) => {
   for (let i = 0; i < hashTags.length; i++) {
-    if (hashTags[i].length <= HASHTAG_MAX_LENGTH) {
-      return true;
-    }
+    return hashTags[i].length <= HASHTAG_MAX_LENGTH;
   }
-}
+};
 
 const hashtagLettersValidate = (hashTags) => {
   return hashTags.every((tag) => /^#\w{1,19}$/i.test(tag));
-}
+};
 
 const hashtagFirstLetterValidate = (hashTags) => {
   for (let i = 0; i < hashTags.length; i++) {
-    if (hashTags[i].startsWith('#')) {
-      return true;
-    }
+    return hashTags[i].startsWith('#');
   }
-}
+};
 
 hashtagsInput.addEventListener('input', () => {
-  const hashtags = hashtagsInput.value.split(' ');
+  const hashtags = hashtagsInput.value.toLowerCase().split(' ');
 
   if (hashtagsInput.value === '') {
     hashtagsInput.setCustomValidity('');
@@ -63,7 +59,7 @@ const onInputEscKeydown = (evt) => {
     evt.preventDefault();
     evt.stopPropagation();
   }
-}
+};
 
 hashtagsInput.addEventListener('keydown', onInputEscKeydown);
 userCommentInput.addEventListener('keydown', onInputEscKeydown);

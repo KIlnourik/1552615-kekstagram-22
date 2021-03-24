@@ -19,7 +19,7 @@ const setImageUploadFormSubmit = (onSuccess) => {
           onSuccess();
           showUploadSuccess();
         } else {
-          showUploadError();
+          throw new Error('Ошибка');
         }
       })
       .catch(() => {
